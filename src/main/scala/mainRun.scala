@@ -38,5 +38,13 @@ object mainRun extends App {
   //utils.rangeList(3, 9)
 
   //P23
-  utils.randomSelectList(3,List('a, 'b, 'c, 'd,'e,'f))
+  //utils.randomSelectList(3,List('a, 'b, 'c, 'd,'e,'f))
+
+  //P24
+  //utils.lotto(6,49)
+
+  //P25
+  utils.randomPermuteList(List('a, 'b, 'c, 'd, 'e, 'f))
+
+
 }

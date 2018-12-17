@@ -1,7 +1,7 @@
 import scala.collection.mutable._
 object utils {
 
-  //println("Welcome to utils object !")
+
   //P05
   def reverseList(alist: List[Int]): List[Int] = {
     var blist = new ListBuffer[Int]
@@ -135,6 +135,15 @@ object utils {
     (listBuffer.toList, list(Index))
   }
 
+  def removeAtList2(Index: Int, list: List[Int]): (List[Int], Int) = {
+    var listBuffer = new ListBuffer[Int]
+    for (i <- 0 to list.length - 1 if i != Index) {
+      listBuffer += list(i)
+    }
+    println((listBuffer.toList, list(Index)))
+    (listBuffer.toList, list(Index))
+  }
+
   //P21
   def insertAtList(sym:Symbol,Index: Int, list: List[Symbol]): List[Symbol] = {
     var listBuffer = new ListBuffer[Symbol]
@@ -188,14 +197,44 @@ object utils {
     for(i<-1 to cnt)
       {
        // println(removeAtList(i,list))
-         ind = Random.nextInt(temp._1.length-1)
+        if(temp._1.length-1 != 0)
+         {ind = Random.nextInt(temp._1.length-1)
          temp= removeAtList(ind,temp._1)
         listBuffer += temp._2
+         } else {
+          temp= removeAtList(0,temp._1)
+          listBuffer += temp._2
+        }
+
       }
-    println(listBuffer.toList)
+    println("Random Select List => "+listBuffer.toList)
     listBuffer.toList
   }
 
   //P24
- // def
+  def lotto(cnt:Int,endList:Int):List[Int]={
+    var listBuffer=new ListBuffer[Int]
+    var temp = (rangeList(1,endList),3)
+    //print((a,b))
+    var ind = 0
+    //var (c:List[Symbol],d:Symbol)
+    import scala.util.Random
+    for(i<-1 to cnt)
+    {
+      // println(removeAtList(i,list))
+      ind = Random.nextInt(temp._1.length-1)
+      temp= removeAtList2(ind,temp._1)
+      listBuffer += temp._2
+    }
+    println(listBuffer.toList)
+    listBuffer.toList
+  }
+
+  //P25
+  def randomPermuteList(list:List[Symbol]):List[Symbol]={
+    var size = list.length
+    val flist= randomSelectList(size,list)
+    println(flist)
+    flist
+  }
 }
