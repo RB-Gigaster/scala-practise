@@ -178,6 +178,24 @@ object utils {
   //P23
 
   def randomSelectList(cnt:Int,list: List[Symbol]):List[Symbol]={
-
+    var listBuffer=new ListBuffer[Symbol]
+    //var(a:List[Symbol],b:Symbol)=(list,'x)
+    var temp =(list,'x)
+    //print((a,b))
+    var ind = 0
+    //var (c:List[Symbol],d:Symbol)
+    import scala.util.Random
+    for(i<-1 to cnt)
+      {
+       // println(removeAtList(i,list))
+         ind = Random.nextInt(temp._1.length-1)
+         temp= removeAtList(ind,temp._1)
+        listBuffer += temp._2
+      }
+    println(listBuffer.toList)
+    listBuffer.toList
   }
+
+  //P24
+ // def
 }

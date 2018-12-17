@@ -35,8 +35,8 @@ object mainRun extends App {
   //utils.insertAtList(sym = 'new,Index = 4, List('a, 'b, 'c, 'd))
 
   //P22
-  utils.rangeList(3, 9)
+  //utils.rangeList(3, 9)
 
   //P23
-
+  utils.randomSelectList(3,List('a, 'b, 'c, 'd,'e,'f))
 }
