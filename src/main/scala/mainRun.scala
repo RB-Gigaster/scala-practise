@@ -13,6 +13,14 @@ object mainRun extends App {
   //P08
   // utils.compresList(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 
+  //P09
+   // utils.packList(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  //utils.packList(List('a, 'e, 'e, 'e))
+
+  //P10
+    //utils.packListCnt(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+    //utils.packListCnt(List('a, 'e, 'e, 'e))
+
   //P14
   //  utils.duplicateList(List('a, 'b, 'c, 'c, 'd))
 
@@ -44,7 +52,10 @@ object mainRun extends App {
   //utils.lotto(6,49)
 
   //P25
-  utils.randomPermuteList(List('a, 'b, 'c, 'd, 'e, 'f))
+  //utils.randomPermuteList(List('a, 'b, 'c, 'd, 'e, 'f))
+
+  //P26
+
 
 
 }

@@ -1,4 +1,5 @@
 import scala.collection.mutable._
+import scala.util.control.Breaks
 object utils {
 
 
@@ -46,19 +47,50 @@ object utils {
     println(listB.toList)
     listB.toList
   }
-
+  import scala.util.control.Breaks
   //p09
-  /* def packList(list: List[Symbol]):List[List[Symbol] = {
-    var k
-    var listFinal = List[Symbol]
-    var listB = new ListBuffer[Symbol]
+   def packList(list: List[Symbol]):List[List[Symbol]]= {
+    //var listFinal = List[Symbol]
+    /*var k = 1
+     var j=1
+     var listB = new ListBuffer[Symbol]
+     var listBuffer = new ListBuffer[List[Symbol]]
     for (i <- 0 to list.length - 1) {
-
-      for (j <- 1 to list.length - 1 if list(i) == list(j)) {
+      for (j <- k to list.length - 1 if !(list(i) != list(j)) ) {
         listB += list(j)
       }
+      k=j
+      listBuffer+=listB.toList
+      listB.clear()
     }
-  }*/
+     println(listBuffer.toList)
+     listBuffer.toList*/
+     var listBuffer = new ListBuffer[List[Symbol]]
+     var listB = new ListBuffer[Symbol]
+     for(i <- 0 to list.length-2;j<-i+1 to list.length-1 ) {
+       if(list(i)==list(j) && j==i+1 && i!=list.length-2 )
+       listB+=list(i)
+       else if( listB.contains(list(i))  && j==i+1  && i!=list.length-2){ listB+=list(i);listBuffer+=listB.toList;listB.clear()}
+       else if(j==i+1 && i!=list.length-2){ listB+=list(i);listBuffer+=listB.toList;listB.clear()}
+       else if(i==list.length-2){
+         if(list(i)==list(j)){listB+=list(i);listB+=list(j);listBuffer+=listB.toList;listB.clear()
+         } else if(list(i)!=list(j)) {
+           listB+=list(i);listBuffer+=listB.toList;listB.clear();listB+=list(j);listBuffer+=listB.toList}
+       }
+     }
+     println(listBuffer.toList)
+     listBuffer.toList
+  }
+
+  //p10
+  def packListCnt(list: List[Symbol]):List[(Int,Symbol)]= {
+    var listBuffer = new ListBuffer[(Int,Symbol)]
+    val fList = packList(list)
+    fList.foreach(x=>{listBuffer.append((x.length,x(0)))})
+    println(listBuffer.toList)
+    listBuffer.toList
+
+  }
 
   //P14
   def duplicateList(list: List[Symbol]): List[Symbol] = {
@@ -237,4 +269,6 @@ object utils {
     println(flist)
     flist
   }
+
+  //P26
 }
